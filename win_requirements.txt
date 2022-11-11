@@ -42,4 +42,4 @@ urllib3==1.26.9
 whichcraft==0.6.1
 wincertstore==0.2
 xmltodict==0.13.0
-fp-browser-sdk==0.1
+fp-browser-sdk==0.2
