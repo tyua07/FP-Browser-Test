@@ -385,15 +385,15 @@ class TestNavigator(object):
         self.driver.quit()
 
     # @pytest.mark.skip()
-    @pytest.mark.parametrize('value', ["zh", 'cn'])
-    def test_language(self, value):
+    @pytest.mark.parametrize('value', ["zh-CN", "en-US"])
+    def test_locale(self, value):
         """
-        测试 用户偏好语言
+        测试 用户语言环境
         """
         settings = FPBrowserSettings()
 
         basic = Navigator() \
-            .set_language(value)
+            .set_locale(value)
 
         settings.add_module(basic)
 
@@ -404,14 +404,14 @@ class TestNavigator(object):
         script = '''
                function func(el)
                {
-                  return navigator.language;
+                  return Intl.DateTimeFormat().resolvedOptions().locale;
                }
                return func();
            '''
         value = self.driver.execute_script(script)
-        setting_value = self.config.get('navigator.language')
+        setting_value = self.config.get('navigator.locale')
 
-        print("用户偏好语言:", value, setting_value)
+        print("用户语言环境:", value, setting_value)
         assert value == setting_value
 
         self.driver.close()
@@ -446,6 +446,18 @@ class TestNavigator(object):
 
         print("浏览器支持语言（多个请用", "符号连接）:", value, setting_value)
         assert value == setting_value
+
+        script = '''
+                       function func(el)
+                       {
+                          return navigator.language;
+                       }
+                       return func();
+                   '''
+        value = self.driver.execute_script(script)
+        setting_value = self.config.get('navigator.languages').split(',')[0]
+
+        print("用户偏好语言:", value, setting_value)
 
         self.driver.close()
         self.driver.quit()

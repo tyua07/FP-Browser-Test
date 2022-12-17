@@ -47,7 +47,7 @@ class TestDocument(object):
                    return func();
                '''
         value = self.driver.execute_script(script)
-        setting_value = self.config.get('document.lastModified')
+        setting_value = self.config.get('document.lastmodified')
 
         print("设置 文档最后更新时间:", value, setting_value)
         print("设置 文档最后更新时间:", self._timestamp_to_str(value), self._timestamp_to_str(setting_value))
