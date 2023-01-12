@@ -12,7 +12,7 @@ class TestBasic(object):
     @pytest.mark.parametrize('value', [True, False])
     def test_disable_settings(self, value):
         """
-        否禁用 window.chrome「1：true; 0：false」
+        否禁用 global.disable-settings「1：true; 0：false」
         """
         settings = FPBrowserSettings()
         setting_timezone = 'Asia/Kabul'

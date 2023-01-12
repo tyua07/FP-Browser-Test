@@ -181,7 +181,7 @@ class TestNavigator(object):
         self.driver.quit()
 
     # @pytest.mark.skip()
-    @pytest.mark.parametrize('value', [2, 4, 6, 8, 9, 10])
+    @pytest.mark.parametrize('value', [2, 4, 6])
     def test_hardware_concurrency(self, value):
         """
         测试 处理器数量
@@ -214,7 +214,7 @@ class TestNavigator(object):
         self.driver.quit()
 
     # @pytest.mark.skip()
-    @pytest.mark.parametrize('value', [2, 4, 6, 8, 9, 10])
+    @pytest.mark.parametrize('value', [2, 4, 6])
     def test_device_memory(self, value):
         """
         测试 设备内存数

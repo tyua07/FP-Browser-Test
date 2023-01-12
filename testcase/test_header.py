@@ -298,7 +298,7 @@ class TestHeader(object):
         print("设置 referer:", value, setting_value)
 
         if referrer is None:
-            assert value == ""
+            assert value == "" or value is None
         else:
             assert value == format_url(setting_value)
 

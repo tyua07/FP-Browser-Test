@@ -13,9 +13,9 @@ class TestFakePlugin(object):
     def setup_method(self):
         stop_browser_app()
 
-    @pytest.mark.skip()
-    # @pytest.mark.parametrize('value', [True, False])
-    @pytest.mark.parametrize('value', [False])
+    # @pytest.mark.skip()
+    @pytest.mark.parametrize('value', [True, False])
+    # @pytest.mark.parametrize('value', [False])
     def test_plugin(self, value):
         """
         测试 关闭插件
@@ -53,7 +53,7 @@ class TestFakePlugin(object):
         self.driver.close()
         self.driver.quit()
 
-    @pytest.mark.skip()
+    # @pytest.mark.skip()
     @pytest.mark.parametrize('value', [True])
     def test_fake_plugin(self, value):
         """
